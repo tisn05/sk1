@@ -12,3 +12,11 @@ http://sk1.svn.sourceforge.net/viewvc/sk1/trunk/sK1/po/
   # The main translator tool is POEdit application. POEdit is present in all repositories so just install it from your distro repository. Here is POEdit screenshot with uploaded German PO-file: <br> [http://sk1project.org/images/wiki/poedit.png]
   # Translate all messages in PO-file (POEdit interface is easy and intuitive). Also you can check previously translated messages. Sometimes they require correction. 
   # Save translation result and send it to project developers.
+
+== Desktop resource file ==
+
+To translate messages for system menu you need updating sk1.desktop file. This file can be downloaded on following link:
+
+http://sk1.svn.sourceforge.net/viewvc/sk1/trunk/sK1/src/
+
+Just open this file and you will see which lines you need adding and translating. After translation send this file to project developers.
