@@ -10,6 +10,5 @@ http://sk1.svn.sourceforge.net/viewvc/sk1/trunk/sK1/po/
 
   # Download PO file for your language (for example, for German this will be *de.po* file). If such file is absent for your language just contact to project developers or create such manually (if you know how to do it).
   # The main translator tool is POEdit application. POEdit is present in all repositories so just install it from your distro repository. Here is POEdit screenshot with uploaded German PO-file: <br> [http://sk1project.org/images/wiki/poedit.png]
-
   # Translate all messages in PO-file (POEdit interface is easy and intuitive). Also you can check previously translated messages. Sometimes they require correction. 
   # Save translation result and send it to project developers.
