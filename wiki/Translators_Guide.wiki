@@ -9,4 +9,6 @@ http://sk1.svn.sourceforge.net/viewvc/sk1/trunk/sK1/po/
 == Translation steps ==
 
   # Download PO file for your language (for example for German language this will be *de.po* file). If such file is absent for your language just contact to project developers or create such manually (if you know how to do it).
-  # The main translator tool is POEdit application. POEdit is present in all repositories so just install it from your distro repository
+  # The main translator tool is POEdit application. POEdit is present in all repositories so just install it from your distro repository. Here is POEdit screenshot with uploaded German PO-file:
+
+[http://sk1project.org/images/wiki/poedit.png]
