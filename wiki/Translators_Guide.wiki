@@ -27,7 +27,7 @@ Just open this file in conventional editor (KWrite, gedit etc.) and you will see
 == Testing translation result ==
 The simplest way is compiling and installing sK1 from source code. Use following commands:
 
-*python setup.py bdist-rpm* (for RPM distros: Mandriva, OpenSuse, Fedora etc.)<br>
+*python setup.py bdist-rpm* (for RPM distros: Mandriva, OpenSuSE, Fedora etc.)<br>
 *python setup.py bdist-deb*  (For Debian based distros: Ubuntu, Mint etc.)
 
 As a result you will get packages for you system. Please note that sK1 depends on *sk1libs* and *sk1sdk* packages. So they should be compiled also.
