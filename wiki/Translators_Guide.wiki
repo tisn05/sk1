@@ -13,10 +13,21 @@ http://sk1.svn.sourceforge.net/viewvc/sk1/trunk/sK1/po/
   # Translate all messages in PO-file (POEdit interface is easy and intuitive). Also you can check previously translated messages. Sometimes they require correction. 
   # Save translation result and send it to project developers.
 
+*Notes:*
+Some messages can contain technical characters at the end like *\n*, *\t* Just leave they as is. The same for multiline messages: just store the same message structure.
+
 == Desktop resource file ==
 
 To translate messages for system menu you need updating sk1.desktop file. This file can be downloaded on following link:
 
 http://sk1.svn.sourceforge.net/viewvc/sk1/trunk/sK1/src/
 
-Just open this file and you will see which lines you need adding and translating. After translation send this file to project developers.
+Just open this file in conventional editor (KWrite, gedit etc.) and you will see which lines you need adding and translating. After translation send this file to project developers.
+
+== Testing translation result ==
+The simplest way is compiling and installing sK1 from source code. Use following commands:
+
+*python setup.py bdist-rpm* (for RPM distros: Mandriva, OpenSuse, Fedora etc.)
+*python setup.py bdist-deb*  (For Debian based distros: Ubuntu, Mint etc.)
+
+As a result you will get packages for you system. Please note that sK1 depends on *sk1libs* and *sk1sdk* packages. So they should be compiled also.
