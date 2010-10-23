@@ -6,8 +6,8 @@ sK1 internationalization is based on conventional gettext infrastructure. All tr
 
 == Translation steps ==
 
-# Download PO file for your language. If su
-# 
+  # Download PO file for your language. If su
+  # 
 
 Add your content here.
 
