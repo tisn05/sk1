@@ -14,7 +14,7 @@ http://sk1.svn.sourceforge.net/viewvc/sk1/trunk/sK1/po/
   # Save translation result and send it to project developers.
 
 *Notes:*
-Some messages can contain technical characters at the end like *\n*, *\t* Just leave they as is. The same for multiline messages: just store the same message structure. If you have any questions don't hesitate to contact project developers!
+Some messages contain technical characters like *%i*, *%s*, *\n*, *\t* etc. Just leave they as is. The same for multiline messages: just store the same message structure. If you have any questions don't hesitate to contact project developers!
 
 == Desktop resource file ==
 
