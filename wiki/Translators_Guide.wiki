@@ -2,7 +2,7 @@
 
 sK1 internationalization is based on conventional gettext infrastructure. All translatable messages are collected in sk1.pot file which is a translation template. Using this file translators create human-readable PO-file for each language. After that PO files are compiled into binary MO files for actual use by applications.
 
-The sk1.pot template us updated (*build_pot_file* option) during build of the application build and this task is controlled by project developers. The same is for MO files. Translator only has to provide a completed PO file. All existing PO files can be downloaded from here:
+The sk1.pot template us updated (*build_pot_file* option) during of the application build and this task is controlled by project developers. The same is for MO files. Translator only has to provide a completed PO file. All existing PO files can be downloaded from here:
 
 http://sk1.svn.sourceforge.net/viewvc/sk1/trunk/sK1/po/
 
