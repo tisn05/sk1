@@ -1,28 +1,30 @@
 = Translators' Guide =
 
-sK1 internationalization is based on conventional gettext infrastructure. All translatable messages are collected in sk1.pot file. Using this file translators create human-readable PO-file for each language. After that PO-files are compiled into MO-resources. 
+sK1 internationalization is based on conventional gettext infrastructure. All translatable messages are collected in sk1.pot file which is a translation template. Using this file translators create human-readable PO-file for each language. After that PO files are compiled into binary MO files for actual use by applications.
 
-sk1.pot file update is automated in application build (*build_pot_file* option) and this task is controlled by project developers. The same is for MO-resources. Translator should provides completed PO-file only. All PO-files can be downloaded on following link:
+The sk1.pot template us updated (*build_pot_file* option) during build of the application build and this task is controlled by project developers. The same is for MO files. Translator only has to provide a completed PO file. All existing PO files can be downloaded from here:
 
 http://sk1.svn.sourceforge.net/viewvc/sk1/trunk/sK1/po/
 
 == Translation steps ==
 
-  # Download PO file for your language (for example, for German this will be *de.po* file). If such file is absent for your language just contact to project developers or create such manually (if you know how to do it).
-  # The main translator tool is POEdit application. POEdit is present in all repositories so just install it from your distro repository. Here is POEdit screenshot with uploaded German PO-file: <br> [http://sk1project.org/images/wiki/poedit.png]
-  # Translate all messages in PO-file (POEdit interface is easy and intuitive). Also you can check previously translated messages. Sometimes they require correction. 
-  # Save translation result and send it to project developers.
+  # Download PO file for your language (for example, for German this will be *de.po* file). If such file is absent for your language, just contact developers or create it yourself, if you know how to do it.
+  # While you can edit PO files in a simple text editor, we recommend using specialized PO editors like Lokalize (KDE), GTranslator (GNOME) or poEdit. All of them are usually available from package repositories for your Linux distribution. Here is poEdit screenshot with uploaded German PO file: <br> [http://sk1project.org/images/wiki/poedit.png]
+  # Translate all messages in PO file. You might like checking of previously translated messages are OK as well, sometimes they need fixing. 
+  # Save your PO file and send it to developers.
 
 *Notes:*
-Some messages contain technical characters like *%i*, *%s*, *\n*, *\t* etc. Just leave they as is. The same for multiline messages: just store the same message structure. If you have any questions don't hesitate to contact project developers!
+Some messages contain technical characters like *%i*, *%s*, *\n*, *\t* etc. These are variables and supposed to be substituted with text or numbers in the application. E.g. "Save %s files" is likely to be displayed as "Save 3 files" or something like that. Make sure you understand where every translatable message appears and feel free to change position of such variables, if rules in your native language demand that, just don't delete variables. As for multiline messages, please keep line splits intact.
+
+We highly recommend testing your translations as you translate and definitely testing them before you send them to us. If you have any questions, don't hesitate to contact developers!
 
 == Desktop resource file ==
 
-To translate messages for system menu you need updating sk1.desktop file. This file can be downloaded on following link:
+To translate messages for system menu you have to update sk1.desktop file. This file can be downloaded here:
 
 http://sk1.svn.sourceforge.net/viewvc/sk1/trunk/sK1/src/
 
-Just open this file in conventional editor (KWrite, gedit etc.) and you will see which lines you need adding and translating. After translation send this file to project developers.
+Just open this file in your text editor of choice and you will see which lines you need adding and translating. After translation send this file to developers.
 
 == Testing translation result ==
 The simplest way is compiling and installing sK1 from source code. Use following commands:
@@ -30,4 +32,4 @@ The simplest way is compiling and installing sK1 from source code. Use following
 *python setup.py bdist-rpm* (for RPM distros: Mandriva, OpenSuSE, Fedora etc.)<br>
 *python setup.py bdist-deb*  (For Debian based distros: Ubuntu, Mint etc.)
 
-As a result you will get packages for you system. Please note that sK1 depends on *sk1libs* and *sk1sdk* packages. So they should be compiled also.
+As a result you will get packages for your system. Please note that sK1 depends on *sk1libs* and *sk1sdk* packages. So they should be compiled also.
