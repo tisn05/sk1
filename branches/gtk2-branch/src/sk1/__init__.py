@@ -17,7 +17,7 @@
 
 import os
 
-from sk1.app_conf import get_app_config
+from sk1.app_conf import get_app_config, AppData
 
 global config
 
@@ -36,10 +36,13 @@ def sk1_run():
 
 	_pkgdir = __path__[0]
 	config = get_app_config(_pkgdir)
+	appdata = AppData()
+	config.load(appdata.app_config)
+	config.resource_dir = os.path.join(_pkgdir, 'share')
 
 	os.environ["UBUNTU_MENUPROXY"] = "0"
 
 	from sk1.application import Application
 
-	app = Application(_pkgdir)
+	app = Application(appdata)
 	app.run()

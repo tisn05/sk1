@@ -20,7 +20,6 @@ import gtk
 import sys
 
 from uc2.application import UCApplication
-from uc2.utils import system
 from uc2 import uc2const
 
 from sk1 import _, config, events, rc
@@ -52,26 +51,18 @@ class Application(UCApplication):
 	cursors = None
 
 
-	def __init__(self, path):
+	def __init__(self, appdata):
 
-		UCApplication.__init__(self, path)
+		UCApplication.__init__(self)
 
-		self.path = path
-
-		self.appdata = AppData()
-		config.load(self.appdata.app_config)
-		config.resource_dir = os.path.join(self.path, 'share')
-
+		self.appdata = appdata
 		self.default_cms = AppColorManager(self)
-
 		rc.load_icons()
-
 		self.cursors = modes.get_cursors()
 		self.inspector = DocumentInspector(self)
 		self.proxy = AppProxy(self)
 		self.clipboard = AppClipboard(self)
 		self.palette_mngr = AppPaletteManager(self)
-
 
 		self.accelgroup = gtk.AccelGroup()
 		self.actiongroup = gtk.ActionGroup('BasicAction')
