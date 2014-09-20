@@ -15,9 +15,9 @@
 #	You should have received a copy of the GNU General Public License
 #	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import gtk
+import gtk, gconst
 
-from sk1 import events, const
+from sk1 import events
 
 
 class AppAction(gtk.Action):
@@ -35,7 +35,7 @@ class AppAction(gtk.Action):
 		self.args = args
 		self.icon = icon
 
-		self.connect(const.EVENT_ACTIVATE, self.callback)
+		self.connect(gconst.EVENT_ACTIVATE, self.callback)
 
 		self.channels = channels
 		self.validator = validator
@@ -63,7 +63,7 @@ class AppToggleAction(gtk.ToggleAction):
 		self.args = args
 		self.icon = icon
 
-		self.connect(const.EVENT_ACTIVATE, self.callback)
+		self.connect(gconst.EVENT_ACTIVATE, self.callback)
 
 		self.channels = channels
 		self.validator = validator
