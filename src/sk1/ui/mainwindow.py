@@ -77,9 +77,8 @@ class MainWindow(gtk.Window):
 		self.workarea.box.pack_start(self.hpalette, False, False, 2)
 
 		self.statusbar = AppStatusbar(self)
-		vbox.pack_end(self.statusbar, False, False, 0)
-
-		vbox.pack_end(gtk.HSeparator(), False, False, 0)
+		self.workarea.box.pack_end(self.statusbar, False, False, 0)
+		self.workarea.box.pack_end(gtk.HSeparator(), False, False, 0)
 
 		self.add(vbox)
 		self.set_win_title()
@@ -153,12 +152,16 @@ class SplashArea(gtk.DrawingArea):
 		self.pixel = r * 256 * 256 * 256 + g * 65536 + b * 256 + 255
 
 		self.banner = rc.get_pixbuf(rc.IMG_CAIRO_BANNER)
+		self.banner2 = rc.get_pixbuf(rc.IMG_SPLASH_TRIADA)
 		self.connect('expose_event', self.repaint)
 
 	def repaint(self, *args):
 		if config.show_cairo_splash:
-			h = self.allocation[3]
+			w, h = tuple(self.allocation)[2:]
 			self.composite(self.banner, 5, h - self.banner.get_height() - 5)
+			x = w - self.banner2.get_width() + 80
+			y = h - self.banner2.get_height() + 80
+			self.composite(self.banner2, x, y)
 
 	def composite(self, banner, x, y):
 		frame = gtk.gdk.Pixbuf(gtk.gdk.COLORSPACE_RGB, False, 8,
