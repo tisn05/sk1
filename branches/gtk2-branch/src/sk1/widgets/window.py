@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-#	Copyright (C) 2014 by Igor E. Novikov
+#	Copyright (C) 2011-2014 by Igor E. Novikov
 #
 #	This program is free software: you can redistribute it and/or modify
 #	it under the terms of the GNU General Public License as published by
@@ -15,18 +15,29 @@
 #	You should have received a copy of the GNU General Public License
 #	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from window import MainWindow
-from generic import CheckButton, PangoLabel, SimpleListCombo
-from generic import SpinButton, SpinButtonInt, ColorButton
-from imagewidgets import ImageButton, ImageStockButton, ImageToggleButton
-from imagewidgets import KeepRatioLabel, ImageLabel
-from unitwidgets import UnitLabel, UnitSpin, AngleSpin
-from actionwidgets import ActionButton, ActionToggleButton
+import gtk, gconst
 
-from color_monitor import ColorMonitorWidget
-from pager_widget import PagerWidget
-from palette_widget import HPaletteWidget
+from boxes import VBox, HBox
 
-from actions import AppAction, AppToggleAction
-from hidable import HidableArea, HidableHBox, HidableVBox
+class MainWindow(gtk.Window):
 
+	def __init__(self, horizontal=False):
+		gtk.Window.__init__(self)
+		if horizontal:
+			self.box = HBox()
+		else:
+			self.box = VBox()
+		self.build()
+		self.add(self.box)
+		self.connect(gconst.EVENT_DELETE, self.exit)
+		self.show_all()
+
+	def build(self):pass
+
+	def exit(self, *args):return True
+
+	def pack(self, child, expand=False, fill=False, padding=0, end=False):
+		self.box.pack(child, expand, fill, padding, end)
+
+	def center(self):
+		self.set_position(gtk.WIN_POS_CENTER)

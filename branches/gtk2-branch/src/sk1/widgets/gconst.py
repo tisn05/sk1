@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-#	Copyright (C) 2014 by Igor E. Novikov
+#	Copyright (C) 2011-2014 by Igor E. Novikov
 #
 #	This program is free software: you can redistribute it and/or modify
 #	it under the terms of the GNU General Public License as published by
@@ -15,18 +15,26 @@
 #	You should have received a copy of the GNU General Public License
 #	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from window import MainWindow
-from generic import CheckButton, PangoLabel, SimpleListCombo
-from generic import SpinButton, SpinButtonInt, ColorButton
-from imagewidgets import ImageButton, ImageStockButton, ImageToggleButton
-from imagewidgets import KeepRatioLabel, ImageLabel
-from unitwidgets import UnitLabel, UnitSpin, AngleSpin
-from actionwidgets import ActionButton, ActionToggleButton
+KEY_KP_ENTER = 65421
+KEY_RETURN = 65293
 
-from color_monitor import ColorMonitorWidget
-from pager_widget import PagerWidget
-from palette_widget import HPaletteWidget
+TXT_SMALL = 'small'
+TXT_SMALLER = 'smaller'
+TXT_MEDIUM = 'medium'
+TXT_LARGE = 'large'
+TXT_LARGER = 'larger'
 
-from actions import AppAction, AppToggleAction
-from hidable import HidableArea, HidableHBox, HidableVBox
+PROP_RELIEF = 'relief'
+PROP_CAN_FOCUS = 'can-focus'
 
+EVENT_DELETE = 'delete-event'
+EVENT_ACTIVATE = 'activate'
+EVENT_EXPOSE = 'expose_event'
+EVENT_BUTTON_PRESS = 'button-press-event'
+EVENT_BUTTON_RELEASE = 'button-release-event'
+EVENT_MOUSE_MOTION = 'motion_notify_event'
+EVENT_CLICKED = 'clicked'
+EVENT_TOGGLED = 'toggled'
+EVENT_CHANGED = 'changed'
+EVENT_VALUE_CHANGED = 'value-changed'
+EVENT_COLOR_SET = 'color-set'
