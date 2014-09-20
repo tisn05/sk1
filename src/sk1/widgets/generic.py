@@ -20,6 +20,16 @@ import gtk, gobject
 from uc2.cms import gdk_hexcolor_to_rgb, rgb_to_gdk_hexcolor
 from sk1 import const
 
+class VLine(gtk.VSeparator):
+
+	def __init__(self):
+		gtk.VSeparator.__init__(self)
+
+class HLine(gtk.HSeparator):
+
+	def __init__(self):
+		gtk.HSeparator.__init__(self)
+
 class CheckButton(gtk.CheckButton):
 
 	def __init__(self, text, state=False, cmd=None):
