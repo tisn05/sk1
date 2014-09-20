@@ -15,9 +15,9 @@
 #	You should have received a copy of the GNU General Public License
 #	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import gtk
+import gtk, gconst
 
-from sk1 import _, events, const, rc
+from sk1 import _, events, rc
 from sk1.widgets.hidable import HidableHBox
 from sk1.widgets.generic import PangoLabel
 from sk1.widgets.imagewidgets import ImageButton
@@ -45,7 +45,7 @@ class PagerWidget(HidableHBox):
 		self.left = ImageButton(rc.IMG_PAGER_PREV, '', True, self.goto_left)
 		self.hbox.pack_start(self.left, False, False, 0)
 
-		self.label = PangoLabel(size=const.TXT_SMALLER)
+		self.label = PangoLabel(size=gconst.TXT_SMALLER)
 		self.hbox.pack_start(self.label, False, False, 5)
 
 		self.right = ImageButton(rc.IMG_PAGER_NEXT, '', True, self.goto_right)

@@ -15,10 +15,9 @@
 #	You should have received a copy of the GNU General Public License
 #	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import gtk, gobject
+import gtk, gobject, gconst
 
 from uc2.cms import gdk_hexcolor_to_rgb, rgb_to_gdk_hexcolor
-from sk1 import const
 
 class VLine(gtk.VSeparator):
 
@@ -35,7 +34,7 @@ class CheckButton(gtk.CheckButton):
 	def __init__(self, text, state=False, cmd=None):
 		gtk.CheckButton.__init__(self, text)
 		self.set_active(state)
-		if cmd: self.connect(const.EVENT_TOGGLED, cmd)
+		if cmd: self.connect(gconst.EVENT_TOGGLED, cmd)
 
 class SpinButton(gtk.SpinButton):
 
@@ -44,7 +43,7 @@ class SpinButton(gtk.SpinButton):
 		self.adj = gtk.Adjustment(val, valrange[0], valrange[1], step_incr, 1.0, 0.0)
 		gtk.SpinButton.__init__(self, self.adj, 0.1, 2)
 		self.set_numeric(True)
-		if cmd: self.connect(const.EVENT_VALUE_CHANGED, cmd)
+		if cmd: self.connect(gconst.EVENT_VALUE_CHANGED, cmd)
 
 class SpinButtonInt(SpinButton):
 
@@ -60,7 +59,7 @@ class ColorButton(gtk.ColorButton):
 	def __init__(self, color, title='', cmd=None):
 		gtk.ColorButton.__init__(self)
 		self.set_color(color)
-		if cmd:self.connect(const.EVENT_COLOR_SET, cmd)
+		if cmd:self.connect(gconst.EVENT_COLOR_SET, cmd)
 		if title:self.set_title(title)
 
 	def set_color(self, color):
@@ -99,7 +98,7 @@ class SimpleListCombo(gtk.ComboBox):
 		self.add_attribute(cell, 'text', 0)
 		self.set_list(listdata)
 		self.vbox.pack_start(self, False, False, 0)
-		if cmd: self.connect(const.EVENT_CHANGED, cmd)
+		if cmd: self.connect(gconst.EVENT_CHANGED, cmd)
 
 	def clear(self):
 		self.liststore.clear()
