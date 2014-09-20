@@ -26,11 +26,10 @@ from sk1 import _, config, events, rc
 from sk1.dialogs import msg_dialog, get_open_file_name, get_save_file_name
 from sk1.dialogs import warning_dialog
 from sk1 import modes
-from sk1.app_conf import AppData
 from sk1.app_cms import AppColorManager
 from sk1.proxy import AppProxy
 from sk1.inspector import DocumentInspector
-from sk1.ui.mainwindow import MainWindow
+from sk1.ui.mainwindow import AppMainWindow
 from sk1.actions import create_actions
 from sk1.view.presenter import DocPresenter
 from sk1.ui.clipboard import AppClipboard
@@ -68,7 +67,7 @@ class Application(UCApplication):
 		self.actiongroup = gtk.ActionGroup('BasicAction')
 
 		self.actions = create_actions(self)
-		self.mw = MainWindow(self)
+		self.mw = AppMainWindow(self)
 		self.proxy.update_references()
 
 	def run(self):

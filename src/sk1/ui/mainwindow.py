@@ -25,25 +25,24 @@ from sk1.ui.palette import HPalette
 from sk1.ui.statusbar import AppStatusbar
 from sk1.context import ContextPanel
 from sk1.plugins import PluginPanel
-from sk1.widgets import HidableArea
+from sk1.widgets import HidableArea, MainWindow
 
-class MainWindow(gtk.Window):
+class AppMainWindow(MainWindow):
 
 	canvas = None
 	doc_index = 1
 
 	def __init__(self, app):
-
-		gtk.Window.__init__(self)
 		self.app = app
+		MainWindow.__init__(self)
 
-		vbox = gtk.VBox(False, 0)
+	def build(self):
 
 		self.mb = AppMenubar(self)
-		vbox.pack_start(self.mb, False, False, 0)
+		self.pack(self.mb)
 
 		self.toolbar = AppToolbar(self)
-		vbox.pack_start(self.toolbar, False, False, 0)
+		self.pack(self.toolbar)
 
 		#---CENTRAL PART
 		self.workarea = HidableArea()
@@ -66,7 +65,7 @@ class MainWindow(gtk.Window):
 
 		hbox.pack_start(self.inner_hpaned, True, True, 1)
 		self.workarea.box.pack_start(hbox , True, True, 0)
-		vbox.pack_start(self.workarea , True, True, 0)
+		self.pack(self.workarea , True, True, 0)
 
 		#---SPLASH
 		self.nb_splash = SplashArea(self)
@@ -80,17 +79,14 @@ class MainWindow(gtk.Window):
 		self.workarea.box.pack_end(self.statusbar, False, False, 0)
 		self.workarea.box.pack_end(gtk.HSeparator(), False, False, 0)
 
-		self.add(vbox)
 		self.set_win_title()
 		self.set_size_request(config.mw_min_width, config.mw_min_height)
 		if config.mw_store_size:
 			self.set_default_size(config.mw_width, config.mw_height)
-		self.set_position(gtk.WIN_POS_CENTER)
-		self.connect("delete-event", self.exit)
+
 		self.add_accel_group(self.app.accelgroup)
 		self.set_icon_from_file(rc.get_image_path(rc.IMG_APP_ICON))
 
-		self.show_all()
 		if config.mw_maximized:
 			self.window.maximize()
 
