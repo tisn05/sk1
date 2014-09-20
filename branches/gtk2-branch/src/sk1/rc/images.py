@@ -20,6 +20,7 @@ from sk1 import config
 
 IMG_APP_ICON = 'sk1-app-icon'
 IMG_CAIRO_BANNER = 'sk1-cairo-banner'
+IMG_SPLASH_TRIADA = 'sk1-splash-triada'
 
 IMG_RULER_BG = 'sk1-ruler-corner-bg'
 IMG_RULER_DO_LL = 'sk1-ruler-docorigin-ll'
