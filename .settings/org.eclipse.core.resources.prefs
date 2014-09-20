@@ -63,6 +63,7 @@ encoding//src/sk1/view/snapping.py=utf-8
 encoding//src/sk1/widgets/__init__.py=utf-8
 encoding//src/sk1/widgets/actions.py=utf-8
 encoding//src/sk1/widgets/actionwidgets.py=utf-8
+encoding//src/sk1/widgets/boxes.py=utf-8
 encoding//src/sk1/widgets/color_monitor.py=utf-8
 encoding//src/sk1/widgets/generic.py=utf-8
 encoding//src/sk1/widgets/hidable.py=utf-8
