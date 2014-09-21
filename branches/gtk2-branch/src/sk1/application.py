@@ -75,7 +75,7 @@ class Application(UCApplication):
 		events.emit(events.APP_STATUS,
 				_('To start create new or open existing document'))
 		self.process_args()
-		gtk.main()
+		self.mw.run()
 
 	def process_args(self):
 		args = sys.argv[1:]
@@ -96,11 +96,10 @@ class Application(UCApplication):
 		self.current_doc = doc
 		events.emit(events.DOC_CHANGED, doc)
 
-	def exit(self):
+	def exit_request(self):
 		if self.close_all():
 			self.update_config()
 			config.save(self.appdata.app_config)
-			gtk.main_quit()
 			return True
 		return False
 
@@ -254,17 +253,11 @@ class Application(UCApplication):
 
 	def update_config(self):
 		config.resource_dir = ''
-		if config.mw_maximized:return
-		w, h = self.mw.get_size()
+		if config.mw_keep_maximized:return
 		if config.mw_store_size:
-			state = self.mw.window.get_state()
-			if state == gtk.gdk.WINDOW_STATE_MAXIMIZED:
-				config.mw_maximized = True
-			else:
-				config.mw_maximized = False
-
-				config.mw_width = w
-				config.mw_height = h
+			if not self.mw.is_maximized():
+				config.mw_size = self.mw.get_size()
+			config.mw_maximized = self.mw.is_maximized()
 
 	def open_url(self, url):
 		import webbrowser

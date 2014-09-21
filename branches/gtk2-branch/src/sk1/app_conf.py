@@ -71,6 +71,10 @@ class AppConfig(UCConfig):
 
 	mw_store_size = True
 	mw_maximized = False
+	mw_keep_maximized = False
+	mw_size = (1000, 700)
+	mw_min_size = (1000, 700)
+
 	mw_width = 1000
 	mw_height = 700
 	mw_min_width = 1000
