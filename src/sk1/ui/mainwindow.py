@@ -25,7 +25,7 @@ from sk1.ui.palette import HPalette
 from sk1.ui.statusbar import AppStatusbar
 from sk1.context import ContextPanel
 from sk1.plugins import PluginPanel
-from sk1.widgets import HidableArea, MainWindow
+from sk1.widgets import HidableArea, MainWindow, HLine
 
 class AppMainWindow(MainWindow):
 
@@ -47,10 +47,10 @@ class AppMainWindow(MainWindow):
 		#---CENTRAL PART
 		self.workarea = HidableArea()
 
-		self.workarea.box.pack_start(gtk.HSeparator(), False, False, 0)
+		self.workarea.box.pack_start(HLine(), False, False, 0)
 		self.ctx_bar = ContextPanel(self)
 		self.workarea.box.pack_start(self.ctx_bar, False, False, 0)
-		self.workarea.box.pack_start(gtk.HSeparator(), False, False, 0)
+		self.workarea.box.pack_start(HLine(), False, False, 0)
 
 		hbox = gtk.HBox(False, 0)
 		self.tools = AppTools(self)
@@ -77,24 +77,20 @@ class AppMainWindow(MainWindow):
 
 		self.statusbar = AppStatusbar(self)
 		self.workarea.box.pack_end(self.statusbar, False, False, 0)
-		self.workarea.box.pack_end(gtk.HSeparator(), False, False, 0)
+		self.workarea.box.pack_end(HLine(), False, False, 0)
 
 		self.set_win_title()
-		self.set_size_request(config.mw_min_width, config.mw_min_height)
-		if config.mw_store_size:
-			self.set_default_size(config.mw_width, config.mw_height)
+		self.set_min_size(*config.mw_min_size)
+		if config.mw_store_size: self.set_size(*config.mw_size)
 
 		self.add_accel_group(self.app.accelgroup)
 		self.set_icon_from_file(rc.get_image_path(rc.IMG_APP_ICON))
 
-		if config.mw_maximized:
-			self.window.maximize()
+		if config.mw_maximized: self.maximize()
 
-	def exit(self, *args):
-		if self.app.exit():
-			return False
-		else:
-			return True
+	def event_close(self, *args):
+		if self.app.exit_request(): self.exit()
+		return False
 
 	def set_win_title(self, docname=''):
 		if docname:

@@ -42,17 +42,17 @@ class GeneralPlugin(GenericPrefsPlugin):
 		self.winsize_check = CheckButton(txt, config.mw_store_size)
 		self.pack_start(self.winsize_check, False, True, 5)
 
-		txt = _('Maximize application window')
-		self.maxwin_check = CheckButton(txt, config.mw_maximized)
+		txt = _('Maximize application window on start')
+		self.maxwin_check = CheckButton(txt, config.mw_keep_maximized)
 		self.pack_start(self.maxwin_check, False, True, 5)
 
 	def apply_changes(self):
 		config.new_doc_on_start = self.newdoc_check.get_active()
 		config.mw_store_size = self.winsize_check.get_active()
-		config.mw_maximized = self.maxwin_check.get_active()
+		config.mw_keep_maximized = self.maxwin_check.get_active()
 
 	def restore_defaults(self):
 		defaults = config.get_defaults()
 		self.newdoc_check.set_active(defaults['new_doc_on_start'])
 		self.winsize_check.set_active(defaults['mw_store_size'])
-		self.maxwin_check.set_active(defaults['mw_maximized'])
+		self.maxwin_check.set_active(defaults['mw_keep_maximized'])
